@@ -3,7 +3,7 @@ from colorama import Fore
 #               -=====-                         -=====-
 #                _..._                           _..._
 #              .~     `~.                     .~`     ~.
-#      ,_     /          }                   {          \     _,
+#      ,_     /          }         02        {          \     _,
 #     ,_\'--, \   _.'`~~/                     \~~`'._   / ,--'/_,
 #      \'--,_`{_,}    -(                       )-    {,_}`_,--'/
 #       '.`-.`\;--,___.'_                     _'.___,--;/`.-`.'
@@ -30,7 +30,10 @@ def main():
     global translated
 
     #input
-    message = input("Enter Message: ")
+    count=0
+    message = ""
+    while len(message) == 0:
+        message = input("Enter Message: ")
 
     symbols = string.ascii_lowercase+string.ascii_uppercase+string.digits+string.punctuation+" "
     print("All filters are separated by space")
@@ -63,6 +66,7 @@ def main():
         if not (len(wanted_chars) == 0 or wanted_chars == ['']):
             find(wanted_chars,Fore.GREEN,"Character")
         if (len(wanted_chars) == 0 or wanted_chars == ['']) and (len(wanted_numbers) == 0 or wanted_numbers == ['']) and (len(wanted_words) == 0 or wanted_words == ['']):
+            while count == 0: print(f"{Fore.RED}No options were typed, printing all tries.{Fore.RESET}"); count+=1
             print(f"Key: {key} Message:{translated}")
 
 
